@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h1>{{ course.name }}</h1>
+    
+    <h3>Leçons :</h3>
+    {% for lesson in course.lesson_set.all %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5>{{ lesson.title }}</h5>
+                <a href="{% url 'lesson_detail' lesson.id %}" class="btn btn-primary">Commencer</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
